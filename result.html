@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img id="userImage" src="" alt="User's Choice">
+                <img id="computerImage" src="" alt="Computer's Choice">
+                <p id="resultMessage"></p>
+                
+                <a href="next_page_after_ear_or_eye.html"><button id="nextButton">Next</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script2.js"></script>
+    <script>
+        // Retrieve user and computer choices from local storage
+        const userChoice = localStorage.getItem("userChoice");
+        const computerChoice = localStorage.getItem("computerChoice");
+
+        // Function to get the image filename based on the choice number
+        function getImageFilename(choice) {
+            switch (parseInt(choice)) {
+                case 1:
+                    return "emperor.jpg";
+                case 2:
+                    return "citizen.jpg";
+                case 3:
+                    return "slave.jpg";
+                default:
+                    return "";
+            }
+        }
+
+        // Display the chosen images and result message
+        const userImage = document.getElementById("userImage");
+        const computerImage = document.getElementById("computerImage");
+        const resultMessage = document.getElementById("resultMessage");
+
+        // Get the image filenames
+        const userImageFilename = getImageFilename(userChoice);
+        const computerImageFilename = getImageFilename(computerChoice);
+
+        // Set the image sources
+        userImage.src = userImageFilename;
+        computerImage.src = computerImageFilename;
+
+        // Check if it's a tie or a win
+        if (userChoice === computerChoice) {
+            resultMessage.textContent = "It's a tie!";
+        } else if (
+            (userChoice === 1 && computerChoice === 2) ||
+            (userChoice === 2 && computerChoice === 3) ||
+            (userChoice === 3 && computerChoice === 1)
+        ) {
+            resultMessage.textContent = "Computer wins!";
+        } else {
+            resultMessage.textContent = "You win!";
+        }
+
+        // Handle the "Next" button click to go back to the main page
+        const nextButton = document.getElementById("nextButton");
+        nextButton.addEventListener("click", function () {
+            window.location.href = "index.html"; // Redirect to the main page
+        });
+    </script>
+</body>
+</html>

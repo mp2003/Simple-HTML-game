@@ -1,0 +1,30 @@
+body {
+    background-color: #f0f0f0;
+  }
+  
+  .container {
+    max-width: 900px;
+  }
+  
+  .work-image {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .work-image:hover {
+    transform: scale(1.1);
+  }
+  
+  .btn-choose {
+    background-color: #2196F3;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+  }
+  
+  .btn-choose:hover {
+    background-color: #0d47a1;
+  }
+  

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Your existing styles here */
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Page</title>
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <!-- Link Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="eye.jpg" alt="Next Image" class="img-fluid work-image">
+                <p class="mt-4">The cost of losing an eye: 10 million dollars</p>
+                <button id="nextButton" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link Bootstrap JS and jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Link Custom JS -->
+    <script src="script.js"></script>
+    <script>
+        // JavaScript code to handle the next button click event
+        document.getElementById("nextButton").addEventListener("click", function() {
+            // Redirect to the next page (next_page.html)
+            window.location.href = "imager.html";
+        });
+    </script>
+</body>
+</html>

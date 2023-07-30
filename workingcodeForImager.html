@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generator</title>
+    <style>
+        #imageContainer {
+            text-align: center;
+        }
+        #imageOfComputer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Choose an Option:</h1>
+    <button onclick="generateImage('option1')">King</button>
+    <button onclick="generateImage('option2')">Slave</button>
+    <button onclick="generateImage('option3')">Citizen</button>
+    <h1>User's Choice</h1>
+    <div id="imageContainer">
+        <!-- The generated image will be shown here -->
+    </div>
+    <h1>Computer's Choice</h1>
+    <div id="imageOfComputer">
+        <!-- The generated image will be shown here -->
+    </div>
+    <h1>User's Result</h1>
+    <div id="resultContainer"></div>
+
+    <h1>Computer's Result</h1>
+    <div id="resultContainer"></div>
+    <h1>Final Result</h1>
+    <div id="resultContainerForFinal"></div>
+    <script>
+        let decisionByUser;
+        let decisionByComputer;
+        let result = 0;
+        function generateImage(option) {
+            let imageSource;
+            
+
+            switch (option) {
+                case 'option1':
+                    imageSource = 'emperor.jpg';
+                    decisionByUser = 'king';
+                    break;
+                case 'option2':
+                    imageSource = 'slave.jpg';
+                    decisionByUser = 'slave';
+                    break;
+                case 'option3':
+                    imageSource = 'citizen.jpg';
+                    decisionByUser = 'citizen';
+                    break;
+                default:
+                    imageSource = '';
+                    decision = ''; // Default image if option is not recognized
+            }
+
+            const imageContainer = document.getElementById('imageContainer');
+            imageContainer.innerHTML = ''; // Clear any previous content
+
+            if (imageSource) {
+                const imgElement = document.createElement('img');
+                imgElement.src = imageSource;
+                imgElement.alt = 'Generated Image';
+                imageContainer.appendChild(imgElement);
+            }
+
+            generateComputerImage(); // Call the function to generate and display the computer's image
+        }
+
+        function generateComputerImage() {
+            const randomNumber = Math.floor(Math.random() * 3) + 1;
+            let imageSource;
+
+            switch (randomNumber) {
+                case 1:
+                    imageSource = 'emperor.jpg';
+                   decisionByComputer = 'king';
+                    break;
+                case 2:
+                    imageSource = 'slave.jpg';
+                    decisionByComputer = 'slave';
+                    break;
+                case 3:
+                    imageSource = 'citizen.jpg';
+                    decisionByComputer  = 'citizen';
+                    break;
+                default:
+                    imageSource = ''; // Default image if the random number is not recognized
+                    decisionByComputer  = '';
+            }
+
+            const imageOfComputerContainer = document.getElementById('imageOfComputer');
+            imageOfComputerContainer.innerHTML = ''; // Clear any previous content
+
+            if (imageSource) {
+                const imgElement = document.createElement('img');
+                imgElement.src = imageSource;
+                imgElement.alt = 'Generated Image';
+                imageOfComputerContainer.appendChild(imgElement);
+            }
+
+         
+            if (decisionByUser === decisionByComputer) {
+                result += 0; // 0 means a tie
+            } else if (
+                (decisionByUser === 'king' && decisionByComputer === 'slave') ||
+                (decisionByUser === 'slave' && decisionByComputer === 'citizen') ||
+                (decisionByUser === 'citizen' && decisionByComputer === 'king')
+            ) {
+                result += 1; // 1 means user wins
+            } else {
+                result += 2; // 2 means computer wins
+            }
+
+            // Display the result on the screen
+            const resultContainer = document.getElementById('resultContainer');
+            resultContainer.innerText = `Result: ${result}`;
+        }
+    </script>
+</body>
+</html>

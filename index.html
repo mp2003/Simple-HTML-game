@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <!-- Link to Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    /* You can add custom styles here */
+    body {
+      background-color: #f0f0f0;
+    }
+    .homepage-image {
+      max-width: 100%;
+      height: 100;
+      display: block;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .btn-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Image for the homepage -->
+    <img src="homepage.jpg" alt="Homepage" class="homepage-image">
+
+    <!-- Buttons for play, instructions, and credits -->
+    <div class="btn-container">
+      <button class="btn btn-primary" id="playBtn">Play</button>
+      <button class="btn btn-secondary" id="instructionsBtn">Instructions</button>
+      <button class="btn btn-info" id="creditBtn">Credit</button>
+    </div>
+  </div>
+
+  <!-- Link to Bootstrap JavaScript (Popper.js and Bootstrap JS are required for certain Bootstrap features) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    // You can add custom JavaScript here if needed
+    // For example, you can add click event listeners to the buttons
+    document.getElementById('playBtn').addEventListener('click', function() {
+      // Redirect to the desired page (tonegawara.html in this case)
+      window.location.href = 'tonegawara.html';
+    });
+
+    document.getElementById('instructionsBtn').addEventListener('click', function() {
+      // Add code for what should happen when the "Instructions" button is clicked
+      console.log('Instructions button clicked!');
+    });
+
+    document.getElementById('creditBtn').addEventListener('click', function() {
+      // Add code for what should happen when the "Credit" button is clicked
+      console.log('Credit button clicked!');
+    });
+  </script>
+</body>
+</html>
